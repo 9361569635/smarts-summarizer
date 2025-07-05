@@ -1,0 +1,126 @@
+/* static/style.css */
+
+/* Reset layout to vertical alignment */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7f9;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;   /* Stack vertically */
+  align-items: center;      /* Center horizontally */
+}
+
+/* Title styling */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styling */
+form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+label {
+  margin-right: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* static/style.css */
+
+/* Apply to all pages */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafa;
+  color: #333;
+  margin: 0;
+  padding: 40px;
+  line-height: 1.6;
+}
+
+h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+p {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  white-space: pre-wrap; /* preserves line breaks */
+}
+
+a {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  background-color: #0056b3;
+}

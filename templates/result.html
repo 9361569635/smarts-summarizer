@@ -1,0 +1,78 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Summary Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h3>Original Text:</h3>
+  <p id="original-text">{{ original }}</p>
+
+  <h2>Summary:</h2>
+  <p id="summary-text">{{ summary }}</p>
+
+  <div style="margin-bottom: 20px;">
+    <button onclick="copySummary()">📋 Copy Summary</button>
+    <button onclick="downloadPDF()">📄 Download PDF</button>
+  </div>
+
+  <a href="/">🔄 Try Again</a>
+
+  <!-- jsPDF CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    function copySummary() {
+      const text = document.getElementById("summary-text").innerText;
+      navigator.clipboard.writeText(text)
+        .then(() => alert("Summary copied to clipboard!"))
+        .catch(() => alert("Failed to copy text."));
+    }
+
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const summary = document.getElementById("summary-text").innerText;
+      const original = document.getElementById("original-text").innerText;
+
+      doc.setFontSize(14);
+      doc.text("Summary of the text", 10, 10);
+
+      doc.setFontSize(12);
+      let y = 20;
+      const lineHeight = 8;
+
+       // Add original
+      y += lineHeight;
+      doc.text("Original Text:", 10, y);
+      y += lineHeight;
+      const originalLines = doc.splitTextToSize(original, 180);
+      originalLines.forEach(line => {
+        if (y > 280) {
+          doc.addPage();
+          y = 20;
+        }
+        doc.text(line, 10, y);
+        y += lineHeight;
+      });
+      
+     y += lineHeight; 
+
+      // Add summary
+      doc.text("Summarrized text:", 10, y);
+      y += lineHeight;
+      const summaryLines = doc.splitTextToSize(summary, 180);
+      summaryLines.forEach(line => {
+        doc.text(line, 10, y);
+        y += lineHeight;
+        
+      });
+      y += lineHeight;
+      y += lineHeight;
+     doc.text("--------------------------XXXXXXXXXXXXXX END OF SUMMARY XXXXXXXXXXXXX--------------------------", 10, y);
+     doc.save("summary_with_original.pdf");
+    }
+  </script>
+</body>
+</html>
